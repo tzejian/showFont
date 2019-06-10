@@ -1,0 +1,64 @@
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+@mixin transitionDelay($transition-property, $transition-time, $method, $delay) {
+    -webkit-transition: $transition-property $transition-time $method $delay;
+    -moz-transition: $transition-property $transition-time $method $delay;
+    -ms-transition: $transition-property $transition-time $method $delay;
+    -o-transition: $transition-property $transition-time $method $delay;
+    transition: $transition-property $transition-time $method $delay;
+}
+
+@mixin bp($point) {
+    @if $point == minXS {
+        @media (min-width: 321px) { @content; }
+    }
+    @if $point == minSM {
+        @media (min-width: 529px) { @content; }
+    }
+    @if $point == minMD {
+        @media (min-width: 1025px) { @content; }
+    }
+    @if $point == minLG {
+        @media (min-width: 1281px) { @content; }
+    }
+    @if $point == minLG {
+        @media (min-width: 1601px) { @content; }
+    }
+    @if $point == maxXS {
+        @media (max-width: 320px) { @content; }
+    }
+    @if $point == maxSM {
+        @media (max-width: 528px) { @content; }
+    }
+    @if $point == maxMD {
+        @media (max-width: 1024px) { @content; }
+    }
+    @if $point == maxLG {
+        @media (max-width: 1280px) { @content; }
+    }
+    @if $point == maxXL {
+        @media (max-width: 1600px) { @content; }
+    }
+    @if $point == ie {
+        @media screen and (-ms-high-contrast: active),(-ms-high-contrast: none) { @content; }
+    }
+    @if $point == below-sm {
+        @media (max-width: 375px) { @content; }
+    }
+    @if $point == above-sm {
+        @media (min-width: 376px) { @content; }
+    }    
+}
